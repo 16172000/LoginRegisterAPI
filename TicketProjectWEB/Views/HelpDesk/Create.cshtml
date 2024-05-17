@@ -1,0 +1,85 @@
+﻿@model TicketProjectWEB.Models.Tickett
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Ticket</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="HelpDesk"  asp-action="Create" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="Category" class="form-control" asp-items="@ViewBag.Category"></select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubCategory" class="control-label"></label>
+                <select asp-for="SubCategory" class="form-control" asp-items="@ViewBag.SubCategory"></select>
+                <span asp-validation-for="SubCategory" class="text-danger"></span>
+            </div>
+@*
+            <div class="form-group">
+                <label asp-for="Attachment" class="control-label"></label>
+                <input asp-for="Attachment" class="form-control" />
+                <span asp-validation-for="Attachment" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="FileUpload" class="control-label"></label>
+                <input asp-for="FileUpload" type="file" class="form-control" />
+                <span asp-validation-for="FileUpload" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group" hidden>
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <select asp-for="CreatedBy" class="form-control" asp-items="@ViewBag.CreatedBy"></select>
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group" hidden>
+                <label asp-for="CreationDate" class="control-label"></label>
+                <input asp-for="CreationDate" class="form-control" value="@(ViewBag.Date != null ? ViewBag.Date.ToString("yyyy-MM-ddTHH:mm") : string.Empty)" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssignedTo" class="control-label"></label>
+                <select asp-for="AssignedTo" class="form-control" asp-items="@ViewBag.AssignedTo"></select>
+                <span asp-validation-for="AssignedTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+
+                @if (User.Identity.Name != "Admin")
+                {
+                    <a asp-controller="User" asp-action="Index"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px" /></a>
+                }
+                else
+                {
+                    <a asp-controller="Admin" asp-action="Index"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px" /></a>
+
+                }
+
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

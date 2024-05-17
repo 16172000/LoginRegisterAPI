@@ -1,0 +1,178 @@
+﻿@model IEnumerable<TicketProjectWEB.Models.Tickett>
+
+<link href="~/datatables/css/jquery.datatables.min.css" rel="stylesheet" />
+<link href="~/datatables/css/datatables.bootstrap5.min.css" rel="stylesheet" />
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Below Are All The Tickets Created by User</h3>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" , id="MyTable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attachment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+
+@*                @Html.DisplayNameFor(model => model.CreatedByNavigation)
+*@            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attachment)
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>*@
+
+@*                <td style="background-color: @GetStatusColor(item.Status)">
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>*@
+
+
+        <td style="background-color: @GetStatusColor(item.Status)">
+                    <div class="form-group" style="width: 120px;">
+                @Html.DropDownListFor(modelItem => item.Status, new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "InProgress", Value = "InProgress" },
+                    new SelectListItem { Text = "OnHold", Value = "OnHold" },
+                    new SelectListItem { Text = "Completed", Value = "Completed" },
+                    new SelectListItem { Text = "Closed", Value = "Closed" }
+                }, "Select Status", new { @class = "form-control", onchange = "saveStatus(this.value)" })
+            </div>
+@*                    <button type="submit" class="btn btn-primary">Save</button>
+*@
+        </td>
+
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByNavigation.UserName)
+          </td>
+@*            <td>
+                <a asp-action="Edit" asp-route-id="@item.TicketId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.TicketId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TicketId">Delete</a>
+            </td>*@
+
+                <td>
+                    @if (User.Identity.Name == "Admin")
+                    {
+
+                        <a asp-action="Edit" asp-route-id="@item.TicketId"><img src="~/uploadfile/Edit_Logo.png" style="width:30px; height:30px" /></a>
+                        <a asp-action="Delete" asp-route-id="@item.TicketId"><img src="~/uploadfile/Delete_Logo.png" style="width:30px; height:30px" /></a>
+
+                    }
+
+                    <a asp-action="Details" asp-route-id="@item.TicketId"><img src="~/uploadfile/View_Logo.jpg" style="width:30px; height:30px" /></a>
+                </td>
+
+
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="form-group">
+
+    @if(User.Identity.Name != "Admin")
+    {
+        <a asp-controller="User" asp-action="Index"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px" /></a>
+    }
+    else
+    {
+        <a asp-controller="Admin" asp-action="Index"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px" /></a>
+    }
+
+</div>
+
+@section scripts
+{
+    <script>
+        @functions {
+        string GetStatusColor(string status)
+        {
+            switch (status)
+            {
+                case "InProgress":
+                    return "yellow";
+                case "OnHold":
+                    return "green";
+                case "Completed":
+                    return "pink";
+                case "Closed":
+                    return "red";
+                default:
+                    return "white";
+            }
+        }
+    }
+</script>
+
+<script>
+        $(document).ready(function () {
+            $('#MyTable').dataTable({
+                lengthMenu: [
+                    [15, 25, 50, -1],
+                    [15, 25, 50, 'All']
+                ]
+            });
+
+        });
+</script>
+
+
+}
+
+

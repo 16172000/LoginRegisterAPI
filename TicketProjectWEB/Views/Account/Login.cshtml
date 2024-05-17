@@ -1,0 +1,90 @@
+﻿@model TicketProjectWEB.Models.LoginTbl
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+@*            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>*@
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <div class="input-group">
+                    <input asp-for="Password" class="form-control" id="Password" />
+                    <div class="input-group-append">
+                        <button type="button" id="showPassword" class="btn btn-outline-secondary">
+                            <i class="fas fa-eye"></i>👁️
+                        </button>
+                    </div>
+                </div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Login" class="btn btn-primary" /> &nbsp; 
+                <a asp-controller="Forget" asp-action="ForgotPassword">Forget Password ?</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Register">New User - Register</a>
+</div>
+
+
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $("#showPassword").click(function () {
+                var passwordInput = $("#Password");
+                var passwordInputType = passwordInput.attr("type");
+
+                if (passwordInputType === "password") {
+                    passwordInput.attr("type", "text");
+                } else {
+                    passwordInput.attr("type", "password");
+                }
+            });
+        });
+
+    </script>
+
+}
+
+@*            <div class="form-group">
+                <label asp-for="Salt" class="control-label"></label>
+                <input asp-for="Salt" class="form-control" />
+                <span asp-validation-for="Salt" class="text-danger"></span>
+            </div>*@

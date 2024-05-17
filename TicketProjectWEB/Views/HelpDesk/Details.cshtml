@@ -1,0 +1,88 @@
+﻿@model TicketProjectWEB.Models.Tickett
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubCategory)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Attachment)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Attachment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AssignedTo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AssignedTo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedByNavigation.UserName)
+        </dd>
+    </dl>
+</div>
+<div>
+@*    <a  asp-action="Edit" asp-route-id="@Model?.TicketId">Edit</a> |
+*@
+
+@{
+
+
+        if (User.Identity.Name == "Admin")
+        {
+            <a asp-action="Edit" asp-route-id="@Model?.TicketId"><img src="~/uploadfile/Edit_Logo.png" style="width:30px; height:30px" /></a>
+
+        } 
+        else
+        {
+            <a asp-controller="User" asp-action="EditUser" asp-route-id="@Model?.TicketId"><img src="~/uploadfile/Edit_Logo.png" style="width:30px; height:30px" /></a>
+        }
+}
+
+	| <a asp-action="Index"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px"/></a>
+</div>

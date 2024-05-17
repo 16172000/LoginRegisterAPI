@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginRegisterAPI", "LoginRegisterAPI\LoginRegisterAPI.csproj", "{51501341-8AFA-4BFC-8419-4B6760C4BF42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketProjectWEB", "TicketProjectWEB\TicketProjectWEB.csproj", "{1E12C19E-7BAE-4F9F-ACAF-BD5C475FDEF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51501341-8AFA-4BFC-8419-4B6760C4BF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51501341-8AFA-4BFC-8419-4B6760C4BF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51501341-8AFA-4BFC-8419-4B6760C4BF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51501341-8AFA-4BFC-8419-4B6760C4BF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E12C19E-7BAE-4F9F-ACAF-BD5C475FDEF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E12C19E-7BAE-4F9F-ACAF-BD5C475FDEF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E12C19E-7BAE-4F9F-ACAF-BD5C475FDEF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E12C19E-7BAE-4F9F-ACAF-BD5C475FDEF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E07450E7-1269-4172-9B6E-C0E8D485B003}
+	EndGlobalSection
+EndGlobal

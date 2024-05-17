@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<p>
+    <div class="row">
+        <div class="col-1">
+            <label><b>Chart-Type</b></label>
+        </div>
+
+        <div class="col-2">
+            <select id="ChartType" class="form-control" style="width:150px;">
+                <option selected>--Select Chart Type--</option>
+                <option>bar</option>
+                <option>pie</option>
+                <option>line</option>
+                <option>DoughNut</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <input id="ID" value="Show Graph" type="button" />
+        </div>
+    </div>
+</p>
+
+<br />
+
+<div id="ChartView" style="width:300px; height:300px;">
+    <canvas id="myChart" style="display: block; box-sizing: border-box; height: 106px; width: 106px;"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+    $(function () {
+        $('#ID').click(function () {
+            var chartType = $("#ChartType").val();
+            var chartView = document.getElementById('ChartView');
+            chartView.innerHTML = '';
+
+            var canvas = document.createElement('canvas');
+            canvas.id = 'myChart';
+            canvas.width = 400;
+            canvas.height = 400;
+            chartView.appendChild(canvas);
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/GetCompletedData",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccessResult,
+                error: OnError
+            });
+
+            function OnSuccessResult(data) {
+                console.log("Data received:", data);
+
+                var _chartLabels = data.map(item => item.category);
+                var _chartData = data.map(item => item.totalTicketsCompleted);
+
+                console.log("Labels:", _chartLabels);
+                console.log("Data:", _chartData);
+
+                var barColor = ['Orange', 'Yellow', 'Black', 'Purple'];
+
+                new Chart("myChart", {
+                    type: chartType.toLowerCase(),
+                    data: {
+                        labels: _chartLabels,
+                        datasets: [{
+                            backgroundColor: barColor,
+                            data: _chartData
+                        }]
+                    }
+                });
+            }
+
+            function OnError(err) {
+                console.error(err);
+            }
+        });
+    });
+
+</script>
+<div class="form-group">
+    <a asp-action="Index"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px" /></a>
+
+</div>
+
+
