@@ -38,10 +38,10 @@ namespace TicketProjectWEB.Controllers
 
                 Console.WriteLine("Logged-in User: " + loggedInUsername);
 
-                if (int.TryParse(loggedInUsername, out int userId))
+                if (loggedInUsername != null)
                 {
                     var result = _context.Ticketts
-                        .Where(m => m.Status == "Pending" && m.CreatedBy == userId)
+                        .Where(m => m.Status == "Pending" )
                         .GroupBy(m => m.CreatedBy)
                         .Select(g => new
                         {

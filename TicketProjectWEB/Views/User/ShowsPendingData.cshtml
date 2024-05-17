@@ -58,8 +58,8 @@
             function OnSuccessResult(data) {
                 console.log("Data received:", data);
 
-                var _chartLabels = data.map(item => item.CreatedBy);
-                var _chartData = data.map(item => item.TotalTicketsPending);
+                var _chartLabels = data.map(item => item.createdBy);
+                var _chartData = data.map(item => item.totalTicketsPending);
 
                 console.log("Labels:", _chartLabels);
                 console.log("Data:", _chartData);
