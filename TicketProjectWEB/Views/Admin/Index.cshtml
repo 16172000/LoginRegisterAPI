@@ -1,6 +1,12 @@
 ﻿
+@*<div id="overlay">
+    <img src="~/images/loader5.gif" style="width: 180px;height: 180px;" />
+</div>
 
+<script>
+    $("#overlay").fadeIn(10);*@
 <button>
+
     <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="UserDetails"><img src="~/uploadfile/users_logo.png" style="width:100px; height:100px" />Registered User Details</a>
 </button>
 
@@ -35,6 +41,8 @@
 <button>
     <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="GetProductDetail_Graph"><img src="~/uploadfile/createuser_logo.png" style="width:100px; height:100px" />Product Details HighChart Graph</a>
 </button>
+@*    $("#overlay").fadeOut(10);
+*@@*</script>*@
 
 @*<button>
     <a class="nav-link text-dark" asp-area="" asp-controller="HelpDesk" asp-action="Edit">Edit Ticket</a>

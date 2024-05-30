@@ -1,0 +1,43 @@
+<div id="rowtable">
+                    
+                <div id="divLocationImplements">
+                    <div class="searchInput"><input type="text" id="searchInput" placeholder="Search.." maxlength="500" class="form-control sanction-textbox search" style="display:none; width: 250px;" autocomplete="off"></div>
+                        <div class="reponsive-table  upload-bg">
+                            <div class="dashboardtable" style=" max-height: 75vh;">
+                                    <table id="mtbpRangeList" class="table table-bordered table-condensed tableview" border="1">
+                                        <thead id="thead">
+                                           
+                                        </thead>
+                                        <tbody id="tbody"></tbody>
+                                    </table>
+                            </div>
+                        </div>
+
+                </div>
+                       
+
+                        <div class="table-container" id="divGridList1" style="width: 68%;     padding-top: 40px;position: relative;
+                                float: left;">
+                            <div class="dashboardtable" style=" max-height: 75vh;">
+                                <table id="SingalGrid" cellpadding="0" cellspacing="0" class="table table-bordered table-condensed tableview" width="50%" border="1">
+                                        <thead id="tbodySupplierHead1">
+                                            
+                                        </thead>
+                                    <tbody id="tbodySupplier1"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                         <div class="table-container" id="divGridList" style="width: 100%;     padding-top: 40px;position: relative;
+                                float: left;">
+                            <div class="dashboardtable" style=" max-height: 75vh;">
+                                <table id="SingalGrid1" cellpadding="0" cellspacing="0" class="table table-bordered table-condensed tableview" width="50%" border="1">
+                                        <thead id="tbodySupplierHead">
+                                            
+                                        </thead>
+                                    <tbody id="tbodySupplier"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
