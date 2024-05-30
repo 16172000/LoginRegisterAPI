@@ -69,12 +69,12 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>*@
 
-@*                <td style="background-color: @GetStatusColor(item.Status)">
+                <td style="background-color: @GetStatusColor(item.Status)">
                     @Html.DisplayFor(modelItem => item.Status)
-                </td>*@
+                </td>
 
 
-        <td style="background-color: @GetStatusColor(item.Status)">
+@*        <td style="background-color: @GetStatusColor(item.Status)">
                     <div class="form-group" style="width: 120px;">
                 @Html.DropDownListFor(modelItem => item.Status, new List<SelectListItem>
                 {
@@ -85,8 +85,8 @@
                 }, "Select Status", new { @class = "form-control", onchange = "saveStatus(this.value)" })
             </div>
 @*                    <button type="submit" class="btn btn-primary">Save</button>
-*@
-        </td>
+
+        </td>*@
 
 
 
