@@ -72,7 +72,7 @@ namespace TicketProjectWEB.Controllers
         {
             string currentUserEmail = User.Identity.Name;
 
-            var currentUser = _context.Registers.SingleOrDefault(u => u.UserName == currentUserEmail);
+            var currentUser = _context.Registers.FirstOrDefault(u => u.UserName == currentUserEmail);
 
             if (currentUser != null)
             {
@@ -95,7 +95,7 @@ namespace TicketProjectWEB.Controllers
         {
             string currentUserEmail = User.Identity.Name;
 
-            var currentUser = _context.Registers.SingleOrDefault(u => u.UserName == currentUserEmail);
+            var currentUser = _context.Registers.FirstOrDefault(u => u.UserName == currentUserEmail);
 
             if (currentUser != null)
             {
