@@ -17,5 +17,5 @@ public partial class Employee
 
     public string Salary { get; set; } = null!;
 
-    public string File { get; set; } = null!;
+    public string? File { get; set; } = null;
 }

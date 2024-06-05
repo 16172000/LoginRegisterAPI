@@ -4,81 +4,89 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
-
-
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Register">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
+    <div class="col-md-6 offset-md-3">
+        <div class="card" style="border-color: black;">
+            <div class="card-header" style="background-color: #0a0354;">
+                <h2 style="text-align:center;color:aquamarine">REGISTER</h2>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="card-body">
+                <form asp-action="Register">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="UserName" class="control-label"></label>
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" class="control-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Dob" class="control-label"></label>
+                        <input asp-for="Dob" class="form-control" />
+                        <span asp-validation-for="Dob" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.DropDownListFor(model => model.State, new SelectList(new[] { "Andhra Pradesh","Arunachal Pradesh",
+                            "Assam","Bihar","Chhattisgarh","Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
+                            "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
+                            "Nagaland", "Odisha", "Punjab", "Rajasthan" , "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
+                            "Uttar Pradesh", "Uttarakhand", "West Bengal", "New Delhi"}), "Select State", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label"></label>
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Salt" class="control-label"></label>
+                        <input asp-for="Salt" class="form-control" />
+                        <span asp-validation-for="Salt" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group" style="text-align: center">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a asp-controller="Account" asp-action="Login"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px" /></a>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ConfirmPassword" class="control-label"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Dob" class="control-label"></label>
-                <input asp-for="Dob" class="form-control" />
-                <span asp-validation-for="Dob" class="text-danger"></span>
-            </div>
-@*            <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger"></span>
-            </div>*@
-
-            <div class="form-group mt-2">
-                @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-12">
-                    @Html.DropDownListFor(model => model.State, new SelectList(new[] { "Andhra Pradesh","Arunachal Pradesh",
-                    "Assam","Bihar","Chhattisgarh","Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
-                    "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
-                    "Nagaland", "Odisha", "Punjab", "Rajasthan" , "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
-                    "Uttar Pradesh", "Uttarakhand", "West Bengal", "New Delhi"}), "Select State", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Salt" class="control-label"></label>
-                <input asp-for="Salt" class="form-control" />
-                <span asp-validation-for="Salt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a asp-action="Index"><img src="~/uploadfile/backtolist_logo.png" style="width:30px; height:30px" /></a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+<style>
+    .card {
+        border: 2px solid black; /* Set the border color to black */
+    }
+
+    .card-header {
+        background-color: red;
+    }
+</style>

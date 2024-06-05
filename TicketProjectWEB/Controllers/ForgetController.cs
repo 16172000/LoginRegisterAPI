@@ -9,7 +9,6 @@ using TicketProjectWEB.Models;
 
 namespace TicketProjectWEB.Controllers
 {
-    [SessionAuthorize]
     public class ForgetController : Controller
     {
         private readonly CoreProject5DbContext _context;
