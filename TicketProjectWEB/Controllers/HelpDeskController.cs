@@ -128,6 +128,7 @@ namespace TicketProjectWEB.Controllers
 
                 _context.Add(ticket);
                 await _context.SaveChangesAsync();
+                TempData["success"] = "Ticket Created Successfully";
                 return RedirectToAction(nameof(Index));
             }
 

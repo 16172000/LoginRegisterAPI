@@ -1,0 +1,297 @@
+--USE [deviation_db]
+--GO
+--/****** Object:  StoredProcedure [dbo].[sp_getAppRptSearch] '23125255','','','','','','','',''   Script Date: 6/3/2024 5:07:53 PM ******/
+--SET ANSI_NULLS ON
+--GO
+--SET QUOTED_IDENTIFIER ON
+--GO
+--ALTER Procedure [dbo].[sp_getAppRptSearch]
+
+--(
+--@orig varchar(50),  
+--@Title varchar(500), 
+--@status varchar(100),
+--@crtdDtTo varchar(100),      
+--@crtdDtfrm varchar(100),
+--@typ varchar(100),   
+--@Deptnm varchar(100),
+--@bsns varchar(100),
+--@Fy varchar(100)
+--)
+
+--AS        
+--BEGIN        
+--declare @sqlQuery varchar(max)       
+--set @sqlQuery = '
+
+--select  sh.Did,empname+''(''+sh.createdby+'')'' as Empname,partno,product,partn,
+--case when sh.status=''0'' then ''Saved''          
+--when sh.status=''1'' then ''Submitted''          
+--when sh.status= ''2'' then  ''Approved'' end as ''SnStat'',  
+--proposalno as SnNume,
+--Replace(convert(varchar,createdwhen,106),'' '',''-'') as crtdDte from   
+--tbDev sh inner join tbmEmp te on sh.createdby= te.empno  
+
+--inner join tbmDesignation tde on te.DesigId=tde.DesgId inner join tbDept td on td.DeptId=te.Deptid  
+--inner join tbPlant tp on te.Plantid= tp.PlantId
+--left outer join
+--(SELECT DISTINCT p.Did,
+--  STUFF((SELECT distinct '','' + p1.[partno]
+--         FROM tbparts p1
+--         WHERE p.Did = p1.Did
+--            FOR XML PATH(''''), TYPE
+--            ).value(''.'', ''NVARCHAR(MAX)'')
+--        ,1,1,'''') partn
+--FROM tbparts p ) as p on p.Did=sh.Did
+-- where sh.delFlag is null'
+--if(  @orig <> '0' and  @orig <> '')                      
+--Begin       
+--set @sqlQuery = @sqlQuery + ' and  sh.createdby = ''' +   @orig + ''''      
+--End 
+
+-- if(@crtdDtfrm <>'' and @crtdDtfrm <>'0'and @crtdDtTo <>'' and @crtdDtTo <>'0')      
+--begin      
+-- set @sqlQuery = @sqlQuery + ' and  sh.Createdwhen between '''+ @crtdDtfrm + '''' + ' and '''+@crtdDtTo+''''      
+--end     
+
+
+
+--if(  @Fy  <> '0' and  @Fy  <> '')                      
+--Begin       
+--set @sqlQuery = @sqlQuery + ' and  sh.Fy  = ''' +   @Fy  + ''''      
+--End    
+--if(  @Deptnm  <> '0' and  @Deptnm  <> '')                      
+--Begin       
+--set @sqlQuery = @sqlQuery + ' and  sh.Deptnm  = ''' +   @Deptnm  + ''''      
+--End  
+--set @sqlQuery = @sqlQuery + '
+--Union
+--select distinct sh.Did,  empname+''(''+sh.createdby+'')'' as Empname,partno,product,partn,
+--case when sd.status=''0'' then ''Saved''          
+--when sd.status=''1'' then ''Submitted''          
+--when sd.status= ''2'' then  ''Approved''   
+--when sd.status= ''3'' then  ''Denied''   
+--end as ''SdStat''   ,
+--proposalno as SnNume,
+--Replace(convert(varchar,createdwhen,106),'' '',''-'') as crtdDte
+--from tblSnDtl sd inner join  tbDev sh on sh.DId=sd.DId inner join   
+--tbmEmp te on sh.createdby= te.Empno 
+
+--inner join tbmDesignation tde on te.DesigId=tde.DesgId inner join tbDept td on td.DeptId=te.Deptid  
+--inner join tbPlant tp on te.Plantid= tp.PlantId
+--left outer join
+--(SELECT DISTINCT p.Did,
+--  STUFF((SELECT distinct '','' + p1.[partno]
+--         FROM tbparts p1
+--         WHERE p.Did = p1.Did
+--            FOR XML PATH(''''), TYPE
+--            ).value(''.'', ''NVARCHAR(MAX)'')
+--        ,1,1,'''') partn
+--FROM tbparts p ) as p on p.Did=sh.Did
+-- where sh.delFlag is null and sd.delflag is null
+
+--and sd.status in (''1'',''2'')
+--and sh.status <>''0''
+--'
+--if(  @orig <> '0' and  @orig <> '')                      
+--Begin       
+--set @sqlQuery = @sqlQuery + ' and  (AppEmp = ''' +   @orig + ''')'      
+--End 
+
+-- if(@crtdDtfrm <>'' and @crtdDtfrm <>'0'and @crtdDtTo <>'' and @crtdDtTo <>'0')      
+--begin      
+-- set @sqlQuery = @sqlQuery + ' and  sh.Createdwhen between '''+ @crtdDtfrm + '''' + ' and '''+@crtdDtTo+''''      
+--end  
+--if( @status <> '')                      
+--Begin       
+--set @sqlQuery = @sqlQuery + ' and  sd.status= ''' +   @status + ''''       
+--End 
+ 
+
+--if(  @Fy  <> '0' and  @Fy  <> '')                      
+--Begin       
+--set @sqlQuery = @sqlQuery + ' and  sh.Fy  = ''' +   @Fy  + ''''      
+--End    
+--if(  @Deptnm  <> '0' and  @Deptnm  <> '')                      
+--Begin       
+--set @sqlQuery = @sqlQuery + ' and  sh.Deptnm  = ''' +   @Deptnm  + ''''      
+--End  
+-- set @sqlQuery = @sqlQuery + 'order by sh.Did desc'
+--exec(@sqlQuery)      
+--print(@sqlQuery)              
+--END  
+
+
+
+
+USE [deviation_db]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_getAppRptSearch] '23125255','','','','','','','',''   Script Date: 6/3/2024 5:07:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER Procedure [dbo].[sp_getAppRptSearch]
+(
+    @orig varchar(50),  
+    @Title varchar(500), 
+    @status varchar(100),
+    @crtdDtTo varchar(100),      
+    @crtdDtfrm varchar(100),
+    @typ varchar(100),   
+    @Deptnm varchar(100),
+    @bsns varchar(100),
+    @Fy varchar(100),
+    @PageNumber int,
+    @PageSize int
+)
+AS        
+BEGIN        
+    declare @sqlQuery varchar(max)
+    declare @sqlCountQuery varchar(max)
+    declare @Offset int = (@PageNumber - 1) * @PageSize
+
+    -- Base SQL query
+    set @sqlQuery = '
+    select  sh.Did, empname+''(''+sh.createdby+'')'' as Empname, partno, product, partn,
+    case when sh.status=''0'' then ''Saved''          
+    when sh.status=''1'' then ''Submitted''          
+    when sh.status= ''2'' then  ''Approved'' end as ''SnStat'',  
+    proposalno as SnNume,
+    Replace(convert(varchar,createdwhen,106),'' '',''-'') as crtdDte 
+    from tbDev sh 
+    inner join tbmEmp te on sh.createdby= te.empno  
+    inner join tbmDesignation tde on te.DesigId=tde.DesgId 
+    inner join tbDept td on td.DeptId=te.Deptid  
+    inner join tbPlant tp on te.Plantid= tp.PlantId
+    left outer join
+    (SELECT DISTINCT p.Did,
+      STUFF((SELECT distinct '','' + p1.[partno]
+             FROM tbparts p1
+             WHERE p.Did = p1.Did
+                FOR XML PATH(''''), TYPE
+                ).value(''.'', ''NVARCHAR(MAX)'')
+            ,1,1,'''') partn
+    FROM tbparts p ) as p on p.Did=sh.Did
+    where sh.delFlag is null'
+
+    -- Count query
+    set @sqlCountQuery = 'SELECT COUNT(*) FROM (' + @sqlQuery + ') AS CountQuery'
+
+    -- Filters
+    if(@orig <> '0' and @orig <> '')                      
+    Begin       
+        set @sqlQuery = @sqlQuery + ' and sh.createdby = ''' + @orig + ''''
+    End 
+
+    if(@crtdDtfrm <>'' and @crtdDtfrm <>'0' and @crtdDtTo <>'' and @crtdDtTo <>'0')      
+    begin      
+        set @sqlQuery = @sqlQuery + ' and sh.Createdwhen between '''+ @crtdDtfrm + ''' and '''+ @crtdDtTo + ''''
+    end     
+
+    if(@Fy <> '0' and @Fy <> '')                      
+    Begin       
+        set @sqlQuery = @sqlQuery + ' and sh.Fy = ''' + @Fy + ''''      
+    End    
+
+    if(@Deptnm <> '0' and @Deptnm <> '')                      
+    Begin       
+        set @sqlQuery = @sqlQuery + ' and sh.Deptnm = ''' + @Deptnm + ''''      
+    End  
+
+    -- Union part of the query
+    set @sqlQuery = @sqlQuery + '
+    Union
+    select distinct sh.Did, empname+''(''+sh.createdby+'')'' as Empname, partno, product, partn,
+    case when sd.status=''0'' then ''Saved''          
+    when sd.status=''1'' then ''Submitted''          
+    when sd.status= ''2'' then  ''Approved''   
+    when sd.status= ''3'' then  ''Denied''   
+    end as ''SdStat''   ,
+    proposalno as SnNume,
+    Replace(convert(varchar,createdwhen,106),'' '',''-'') as crtdDte
+    from tblSnDtl sd 
+    inner join tbDev sh on sh.DId=sd.DId 
+    inner join tbmEmp te on sh.createdby= te.Empno 
+    inner join tbmDesignation tde on te.DesigId=tde.DesgId 
+    inner join tbDept td on td.DeptId=te.Deptid  
+    inner join tbPlant tp on te.Plantid= tp.PlantId
+    left outer join
+    (SELECT DISTINCT p.Did,
+      STUFF((SELECT distinct '','' + p1.[partno]
+             FROM tbparts p1
+             WHERE p.Did = p1.Did
+                FOR XML PATH(''''), TYPE
+                ).value(''.'', ''NVARCHAR(MAX)'')
+            ,1,1,'''') partn
+    FROM tbparts p ) as p on p.Did=sh.Did
+    where sh.delFlag is null and sd.delflag is null
+    and sd.status in (''1'',''2'')
+    and sh.status <>''0''
+    '
+
+    if(@orig <> '0' and @orig <> '')                      
+    Begin       
+        set @sqlQuery = @sqlQuery + ' and (AppEmp = ''' + @orig + ''')'      
+    End 
+
+    if(@crtdDtfrm <>'' and @crtdDtfrm <>'0' and @crtdDtTo <>'' and @crtdDtTo <>'0')      
+    begin      
+        set @sqlQuery = @sqlQuery + ' and sh.Createdwhen between '''+ @crtdDtfrm + ''' and '''+ @crtdDtTo + ''''
+    end  
+
+    if(@status <> '')                      
+    Begin       
+        set @sqlQuery = @sqlQuery + ' and sd.status = ''' + @status + ''''       
+    End 
+
+    if(@Fy <> '0' and @Fy <> '')                      
+    Begin       
+        set @sqlQuery = @sqlQuery + ' and sh.Fy = ''' + @Fy + ''''      
+    End    
+
+    if(@Deptnm <> '0' and @Deptnm <> '')                      
+    Begin       
+        set @sqlQuery = @sqlQuery + ' and sh.Deptnm = ''' + @Deptnm + ''''      
+    End  
+
+    -- Order by and pagination
+    set @sqlQuery = @sqlQuery + ' 
+    order by sh.Did desc 
+    OFFSET ' + cast(@Offset as varchar) + ' ROWS 
+    FETCH NEXT ' + cast(@PageSize as varchar) + ' ROWS ONLY'
+
+    -- Execute queries
+    exec(@sqlCountQuery) -- Execute the count query to get the total number of records
+    exec(@sqlQuery) -- Execute the main query with pagination
+
+    print(@sqlQuery)              
+END
+
+
+
+
+DECLARE @orig varchar(50) = '23125255',
+        @Title varchar(500) = '',
+        @status varchar(100) = '',
+        @crtdDtTo varchar(100) = '2024-06-03',
+        @crtdDtfrm varchar(100) = '2024-01-01',
+        @typ varchar(100) = '',
+        @Deptnm varchar(100) = '',
+        @bsns varchar(100) = '',
+        @Fy varchar(100) = '',
+        @PageNumber int = 1,
+        @PageSize int = 10;
+
+EXEC [dbo].[sp_getAppRptSearch] 
+    @orig, 
+    @Title, 
+    @status, 
+    @crtdDtTo, 
+    @crtdDtfrm, 
+    @typ, 
+    @Deptnm, 
+    @bsns, 
+    @Fy, 
+    @PageNumber, 
+    @PageSize;

@@ -1,0 +1,525 @@
+<div class="row" id="rowTable">
+
+    <div class="column">
+        <h4 id="singleHead2">SWARAJ Cumulative MTBP - Yearly</h4>
+        <div class="dashboardtable">
+            <table id="SingalGrid" cellpadding="0" cellspacing="0" class="table table-bordered table-condensed tableview" width="50%" border="1">
+                <thead>
+
+                    <tr class="dataGridHeader">
+                        <th>Duration</th>
+
+                        <th>Total Incidences</th>
+                        <th>Commulative Incidences</th>
+                        <th>Inspected Qty</th>
+                        <th>MTBP IVC</th>
+                    </tr>
+                            <tr>
+                                <td>F - 19</td>
+
+                                <td onclick="defectPartclick()">1448</td>
+                                <td onclick="defectPartclick('F - 19')">1448</td>
+                                <td>270991902</td>
+                                <td>0.25</td>
+                            </tr>
+                            <tr>
+                                <td>F - 20</td>
+
+                                <td onclick="defectPartclick()">1190</td>
+                                <td onclick="defectPartclick('F - 19,F - 20')">2638</td>
+                                <td>238598419</td>
+                                <td>0.28</td>
+                            </tr>
+                            <tr>
+                                <td>F - 21</td>
+
+                                <td onclick="defectPartclick()">1248</td>
+                                <td onclick="defectPartclick('F - 19,F - 20,F - 21')">3886</td>
+                                <td>300617081</td>
+                                <td>0.28</td>
+                            </tr>
+                            <tr>
+                                <td>F - 22</td>
+
+                                <td onclick="defectPartclick()">1176</td>
+                                <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22')">5062</td>
+                                <td>278097404</td>
+                                <td>0.29</td>
+                            </tr>
+                            <tr>
+                                <td>F - 23</td>
+
+                                <td onclick="defectPartclick()">1167</td>
+                                <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23')">6229</td>
+                                <td>356611672</td>
+                                <td>0.29</td>
+                            </tr>
+                            <tr>
+                                <td>F - 24</td>
+
+                                <td onclick="defectPartclick()">963</td>
+                                <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24')">7192</td>
+                                <td>391666037</td>
+                                <td>0.30</td>
+                            </tr>
+            </thead></table>
+        </div>
+    </div>
+    <div class="column">
+        <h4 id="singleHead1"> Commodity wise (7 No's) Cumulative MTBP – Yearly</h4>
+        <div class="dashboardtable">
+            <table id="MultipleSingalGrid" cellpadding="0" cellspacing="0" class="table table-bordered table-condensed tableview" width="50%" border="1">
+                <thead>
+                    <tr class="dataGridHeader">
+                        <th>Duration</th>
+
+                        <th>Commodity</th>
+
+                        <th>Total Incidences</th>
+                        <th>Commulative Incidences</th>
+                        <th>Inspected Qty</th>
+                        <th>MTBP IVC</th>
+                    </tr>
+                                <tr>
+                                    <td>F - 19</td>
+
+                                    <td>Cast M/c</td>
+
+                                    <td onclick="defectPartclick()">265</td>
+                                    <td onclick="defectPartclick('F - 19','Cast M/c')">265</td>
+                                    <td>18123932</td>
+                                    <td>1.37</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 19</td>
+
+                                    <td>Fast. / Hard.</td>
+
+                                    <td onclick="defectPartclick()">56</td>
+                                    <td onclick="defectPartclick('F - 19','Fast. / Hard.')">56</td>
+                                    <td>130466320</td>
+                                    <td>6.50</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 19</td>
+
+                                    <td>Forge M/c</td>
+
+                                    <td onclick="defectPartclick()">304</td>
+                                    <td onclick="defectPartclick('F - 19','Forge M/c')">304</td>
+                                    <td>5104145</td>
+                                    <td>4.91</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 19</td>
+
+                                    <td>Prop.</td>
+
+                                    <td onclick="defectPartclick()">239</td>
+                                    <td onclick="defectPartclick('F - 19','Prop.')">239</td>
+                                    <td>54161586</td>
+                                    <td>1.52</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 19</td>
+
+                                    <td>R/M Cast. &amp; Forge</td>
+
+                                    <td onclick="defectPartclick()">247</td>
+                                    <td onclick="defectPartclick('F - 19','R/M Cast. &amp; Forge')">247</td>
+                                    <td>1625955</td>
+                                    <td>1.47</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 19</td>
+
+                                    <td>Rubbers &amp; Plastics</td>
+
+                                    <td onclick="defectPartclick()">49</td>
+                                    <td onclick="defectPartclick('F - 19','Rubbers &amp; Plastics')">49</td>
+                                    <td>30418269</td>
+                                    <td>7.43</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 19</td>
+
+                                    <td>SMF</td>
+
+                                    <td onclick="defectPartclick()">288</td>
+                                    <td onclick="defectPartclick('F - 19','SMF')">288</td>
+                                    <td>31091695</td>
+                                    <td>1.26</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 20</td>
+
+                                    <td>Cast M/c</td>
+
+                                    <td onclick="defectPartclick()">228</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20','Cast M/c')">493</td>
+                                    <td>16493443</td>
+                                    <td>1.48</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 20</td>
+
+                                    <td>Fast. / Hard.</td>
+
+                                    <td onclick="defectPartclick()">35</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20','Fast. / Hard.')">91</td>
+                                    <td>115207146</td>
+                                    <td>8.01</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 20</td>
+
+                                    <td>Forge M/c</td>
+
+                                    <td onclick="defectPartclick()">279</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20','Forge M/c')">583</td>
+                                    <td>4502623</td>
+                                    <td>5.12</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 20</td>
+
+                                    <td>Prop.</td>
+
+                                    <td onclick="defectPartclick()">154</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20','Prop.')">393</td>
+                                    <td>46320283</td>
+                                    <td>1.85</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 20</td>
+
+                                    <td>R/M Cast. &amp; Forge</td>
+
+                                    <td onclick="defectPartclick()">202</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20','R/M Cast. &amp; Forge')">449</td>
+                                    <td>1270382</td>
+                                    <td>1.62</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 20</td>
+
+                                    <td>Rubbers &amp; Plastics</td>
+
+                                    <td onclick="defectPartclick()">30</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20','Rubbers &amp; Plastics')">79</td>
+                                    <td>27544498</td>
+                                    <td>9.23</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 20</td>
+
+                                    <td>SMF</td>
+
+                                    <td onclick="defectPartclick()">262</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20','SMF')">550</td>
+                                    <td>27260044</td>
+                                    <td>1.33</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 21</td>
+
+                                    <td>Cast M/c</td>
+
+                                    <td onclick="defectPartclick()">216</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21','Cast M/c')">709</td>
+                                    <td>20427317</td>
+                                    <td>1.54</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 21</td>
+
+                                    <td>Fast. / Hard.</td>
+
+                                    <td onclick="defectPartclick()">40</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21','Fast. / Hard.')">131</td>
+                                    <td>143636933</td>
+                                    <td>8.34</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 21</td>
+
+                                    <td>Forge M/c</td>
+
+                                    <td onclick="defectPartclick()">331</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21','Forge M/c')">914</td>
+                                    <td>5624688</td>
+                                    <td>4.83</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 21</td>
+
+                                    <td>Prop.</td>
+
+                                    <td onclick="defectPartclick()">170</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21','Prop.')">563</td>
+                                    <td>62731782</td>
+                                    <td>1.94</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 21</td>
+
+                                    <td>R/M Cast. &amp; Forge</td>
+
+                                    <td onclick="defectPartclick()">220</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21','R/M Cast. &amp; Forge')">669</td>
+                                    <td>1568547</td>
+                                    <td>1.63</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 21</td>
+
+                                    <td>Rubbers &amp; Plastics</td>
+
+                                    <td onclick="defectPartclick()">23</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21','Rubbers &amp; Plastics')">102</td>
+                                    <td>34331466</td>
+                                    <td>10.72</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 21</td>
+
+                                    <td>SMF</td>
+
+                                    <td onclick="defectPartclick()">248</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21','SMF')">798</td>
+                                    <td>32296348</td>
+                                    <td>1.37</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 22</td>
+
+                                    <td>Cast M/c</td>
+
+                                    <td onclick="defectPartclick()">214</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22','Cast M/c')">923</td>
+                                    <td>18052151</td>
+                                    <td>1.58</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 22</td>
+
+                                    <td>Fast. / Hard.</td>
+
+                                    <td onclick="defectPartclick()">43</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22','Fast. / Hard.')">174</td>
+                                    <td>139470659</td>
+                                    <td>8.37</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 22</td>
+
+                                    <td>Forge M/c</td>
+
+                                    <td onclick="defectPartclick()">302</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22','Forge M/c')">1216</td>
+                                    <td>5189128</td>
+                                    <td>4.82</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 22</td>
+
+                                    <td>Prop.</td>
+
+                                    <td onclick="defectPartclick()">151</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22','Prop.')">714</td>
+                                    <td>53596098</td>
+                                    <td>2.04</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 22</td>
+
+                                    <td>R/M Cast. &amp; Forge</td>
+
+                                    <td onclick="defectPartclick()">187</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22','R/M Cast. &amp; Forge')">856</td>
+                                    <td>1228995</td>
+                                    <td>1.70</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 22</td>
+
+                                    <td>Rubbers &amp; Plastics</td>
+
+                                    <td onclick="defectPartclick()">42</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22','Rubbers &amp; Plastics')">144</td>
+                                    <td>31994444</td>
+                                    <td>10.12</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 22</td>
+
+                                    <td>SMF</td>
+
+                                    <td onclick="defectPartclick()">237</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22','SMF')">1035</td>
+                                    <td>28565929</td>
+                                    <td>1.41</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 23</td>
+
+                                    <td>Cast M/c</td>
+
+                                    <td onclick="defectPartclick()">221</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23','Cast M/c')">1144</td>
+                                    <td>21419276</td>
+                                    <td>1.59</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 23</td>
+
+                                    <td>Fast. / Hard.</td>
+
+                                    <td onclick="defectPartclick()">23</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23','Fast. / Hard.')">197</td>
+                                    <td>178181414</td>
+                                    <td>9.24</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 23</td>
+
+                                    <td>Forge M/c</td>
+
+                                    <td onclick="defectPartclick()">308</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23','Forge M/c')">1524</td>
+                                    <td>6364134</td>
+                                    <td>4.79</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 23</td>
+
+                                    <td>Prop.</td>
+
+                                    <td onclick="defectPartclick()">162</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23','Prop.')">876</td>
+                                    <td>75615717</td>
+                                    <td>2.08</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 23</td>
+
+                                    <td>R/M Cast. &amp; Forge</td>
+
+                                    <td onclick="defectPartclick()">167</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23','R/M Cast. &amp; Forge')">1023</td>
+                                    <td>1377110</td>
+                                    <td>1.78</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 23</td>
+
+                                    <td>Rubbers &amp; Plastics</td>
+
+                                    <td onclick="defectPartclick()">39</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23','Rubbers &amp; Plastics')">183</td>
+                                    <td>39143031</td>
+                                    <td>9.95</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 23</td>
+
+                                    <td>SMF</td>
+
+                                    <td onclick="defectPartclick()">247</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23','SMF')">1282</td>
+                                    <td>34510990</td>
+                                    <td>1.42</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 24</td>
+
+                                    <td>Cast M/c</td>
+
+                                    <td onclick="defectPartclick()">205</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24','Cast M/c')">1349</td>
+                                    <td>22220823</td>
+                                    <td>1.62</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 24</td>
+
+                                    <td>Fast. / Hard.</td>
+
+                                    <td onclick="defectPartclick()">16</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24','Fast. / Hard.')">213</td>
+                                    <td>208607566</td>
+                                    <td>10.26</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 24</td>
+
+                                    <td>Forge M/c</td>
+
+                                    <td onclick="defectPartclick()">247</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24','Forge M/c')">1771</td>
+                                    <td>6765086</td>
+                                    <td>4.94</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 24</td>
+
+                                    <td>Prop.</td>
+
+                                    <td onclick="defectPartclick()">137</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24','Prop.')">1013</td>
+                                    <td>82961062</td>
+                                    <td>2.16</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 24</td>
+
+                                    <td>R/M Cast. &amp; Forge</td>
+
+                                    <td onclick="defectPartclick()">112</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24','R/M Cast. &amp; Forge')">1135</td>
+                                    <td>1262622</td>
+                                    <td>1.93</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 24</td>
+
+                                    <td>Rubbers &amp; Plastics</td>
+
+                                    <td onclick="defectPartclick()">30</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24','Rubbers &amp; Plastics')">213</td>
+                                    <td>36423138</td>
+                                    <td>10.26</td>
+                                </tr>
+                                <tr>
+                                    <td>F - 24</td>
+
+                                    <td>SMF</td>
+
+                                    <td onclick="defectPartclick()">216</td>
+                                    <td onclick="defectPartclick('F - 19,F - 20,F - 21,F - 22,F - 23,F - 24','SMF')">1498</td>
+                                    <td>33425740</td>
+                                    <td>1.46</td>
+                                </tr>
+
+
+
+            </thead></table>
+        </div>
+
+
+    </div>
+    <div class="col-sm-12">
+        <div class="table-container" id="divGridList">
+            <div class="dashboardtable">
+                <table id="SingalGrid" cellpadding="0" cellspacing="0" class="table table-bordered table-condensed tableview" width="50%" border="1">
+                    <thead id="tbodySupplierHead" style="position: relative;">
+                    </thead>
+                    <tbody id="tbodySupplier"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
